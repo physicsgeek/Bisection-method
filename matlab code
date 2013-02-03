@@ -1,0 +1,13 @@
+function [x]=bisec(f,a,b,eps)
+xi=a;xd=b;
+yi=feval(f,xi);yd=feval(f,xd);
+x=((xi+xd)/2);y=feval(f,x);anc=xd-xi;
+while(anc>eps)
+    if(yi*y<0)
+        xd=x;yd=y;
+    else
+        xi=x;yi=y;
+    end
+    x=(xi+xd)/2;y=feval(f,x);anc=xd-xi;
+end
+end
